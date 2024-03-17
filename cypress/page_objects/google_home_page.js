@@ -4,7 +4,7 @@ var GoogleHomePage = function(cy) {
   const searchInputBox = '[name="q"]'
 
   this.visit = function () {
-      cy.visit('/')
+      cy.visit(Cypress.env('ui_base_url'))
   }
 
   this.searchFor = function (string) {

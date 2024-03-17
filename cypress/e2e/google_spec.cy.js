@@ -7,8 +7,11 @@ describe('Google Tests', () => {
       cy.wait(2000)
       homePage.searchFor('automation')
       resultsPage.selectResultByHref('[href="https://en.wikipedia.org/wiki/Automation"]')
-      //check for earliest automatic process
-      cy.wait(2000)
-      //cy.screenshot()//bug on Cypress
+
+      cy.origin('https://en.wikipedia.org', () => {
+        cy.contains('This was the earliest feedback-controlled mechanism.')
+        cy.wait(2000)
+        cy.screenshot({ capture: 'viewport' })
+      })
   })
 })
